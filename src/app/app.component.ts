@@ -14,3 +14,10 @@ import { HeaderComponent } from './components/header/header.component';
 export class AppComponent {
   title = 'angular-ecomm';
 }
+
+
+
+/*
+  TODO:
+    Botones de aumentar y disminuir cantidad en el cart
+*/

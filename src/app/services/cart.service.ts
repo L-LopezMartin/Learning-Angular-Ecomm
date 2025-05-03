@@ -19,8 +19,13 @@ export class CartService {
     }
   }
 
-  reduceFromCart(product: Product){
-
+  reduceItem(product: Cart){
+    if(product.amount > 1)
+    product.amount --
+  }
+  
+  addItem(product: Cart){
+    product.amount ++
   }
 
   removeFromCart(product: Product){
