@@ -22,10 +22,12 @@ export class CartService {
   reduceItem(product: Cart){
     if(product.amount > 1)
     product.amount --
+    this.cart.set(this.cart().filter(prod => prod === product))
   }
   
   addItem(product: Cart){
     product.amount ++
+    this.cart.set(this.cart().filter(prod => prod === product))
   }
 
   removeFromCart(product: Product){
