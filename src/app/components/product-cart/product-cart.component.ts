@@ -9,16 +9,16 @@ import { PrimaryButtonComponent } from "../primary-button/primary-button.compone
   imports: [DeleteButtonComponent, PrimaryButtonComponent],
   template: `
     <div class="flex justify-between items-center border rounded-xl py-5 px-5 bg shadow-xl">
-      <div class="flex justify-between items-center mb-5 gap-5">
-        <img [src]="product().product.image" class="w-[300px] h-[200px] object-contain" />
-        <div class="flex flex-col justify-around h-[150px] w-[300px]">
+      <div class="flex justify-between items-center mb-5 gap-5 w-[95%]">
+        <img [src]="product().product.image" class="w-[25%] h-[200px] object-contain" />
+        <div class="flex flex-col justify-around w-[70%]">
           <span class="text-[36px] mb-[20px] font-bold">{{product().product.title}}</span>
           <span class="text-[24px]">Price for each: $ {{product().product.price}}</span>
           <span class="text-[24px]">Amount {{product().amount}}</span>
           <span class="text-[24px]">Total price: $ {{(product().product.price * product().amount).toFixed(2)}}</span>
         </div>
       </div>
-      <div class="flex flex-col items-center mr-10 mt-7">
+      <div class="flex flex-col items-center mr-10 mt-7 w-[7%]">
         <div class="w-[50%] items-center">
           <app-primary-button (btnClicked)="addItem()" label="▲"/>
           <app-primary-button (btnClicked)="reduceItem()" label="▼"/>

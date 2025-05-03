@@ -1,5 +1,6 @@
 TODO:
-    - Stock on items limit amount to be added
+    - Stock on items (maybe a random just to try things out)
+    - Adding to cart can't be more than stock limit
 
 
 # AngularEcomm
