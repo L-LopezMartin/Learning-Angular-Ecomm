@@ -1,10 +1,16 @@
 TODO:
-    - Stock on items (maybe a random just to try things out)
-    - Adding to cart can't be more than stock limit
+
+    CRITICAL
+    - Adding items deletes other products in cart
+
+    TO IMPLEMENT
+    O Stock on items (maybe a random just to try things out)
+    O Adding to cart can't be more than stock limit
     - Upload to GitHub
     - Loaders
     - Notifications
     - Item loading as a service
+    - Implement whole FakeStore
 
 
 # AngularEcomm
