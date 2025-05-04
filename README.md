@@ -1,6 +1,10 @@
 TODO:
     - Stock on items (maybe a random just to try things out)
     - Adding to cart can't be more than stock limit
+    - Upload to GitHub
+    - Loaders
+    - Notifications
+    - Item loading as a service
 
 
 # AngularEcomm
