@@ -20,23 +20,30 @@ export class CartService {
   }
 
   reduceItem(product: Cart){
-    if(product.amount > 1)
-    product.amount --
-    this.cart.set(this.cart().filter(prod => prod === product))
+    if(product.amount > 1){  
+      product.amount--
+    }
+
+    //Hay que hacer un SET para que se actualice la signal. Cambiar algo de dentro sin un SET no actualiza en tiempo real
+    this.cart.set(this.cart().filter(prod => prod))
   }
   
   addItem(product: Cart){
-    for(var prod of this.productsService.products()){
-      if(prod === product.product && prod.stock == product.amount){
+
+    for(var prodp of this.productsService.products()){
+      if(prodp === product.product && prodp.stock == product.amount){
         return
       }
     }
-    product.amount ++
-    this.cart.set(this.cart().filter(prod => prod === product))
+
+    product.amount++
+
+    //Hay que hacer un SET para que se actualice la signal. Cambiar algo de dentro sin un SET no actualiza en tiempo real
+    this.cart.set(this.cart().filter(prod => prod))
   }
 
-  removeFromCart(product: Product){
-    this.cart.set(this.cart().filter(prod => prod.product !== product))
+  removeFromCart(product: Cart){
+    this.cart.set(this.cart().filter(prod => prod !== product))
   }
 
   constructor() { }

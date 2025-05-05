@@ -35,7 +35,7 @@ export class ProductCartComponent {
   cart = inject(CartService)
 
   handleDeleteButton(){
-    this.cart.removeFromCart(this.product().product)
+    this.cart.removeFromCart(this.product())
   }
 
   reduceItem(){

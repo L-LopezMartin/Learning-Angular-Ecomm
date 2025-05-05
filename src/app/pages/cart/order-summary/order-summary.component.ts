@@ -20,11 +20,12 @@ import { PrimaryButtonComponent } from "../../../components/primary-button/prima
   styles: ``
 })
 export class OrderSummaryComponent {
-  cart = inject(CartService)
+  cartService = inject(CartService)
+  cart = this.cartService.cart
 
   total = computed(() => {
     let total = 0
-    for(const item of this.cart.cart()){
+    for(const item of this.cart()){
       total += item.product.price * item.amount
     }
     return total.toFixed(2)

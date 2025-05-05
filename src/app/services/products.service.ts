@@ -16,6 +16,7 @@ export class ProductsService {
 
   async fetchProducts(url: string){
     //Fetch from API
+    console.log("Fetching");
     const res = await fetch(url)
     const data = await res.json()
 
@@ -26,5 +27,6 @@ export class ProductsService {
     for (var prod of this.products()){
       prod.stock = Math.floor(Math.random() * 10)
     }
+    console.log("Done fetching and setting");
   }
 }
