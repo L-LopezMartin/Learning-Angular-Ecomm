@@ -3,10 +3,12 @@ TODO:
     CRITICAL
 
     TO IMPLEMENT
-    - Loaders
-    - Notifications
-    - Item loading as a service
-    - Implement whole FakeStore
+    - Notification of adding product
+    - Error message when failed fetching
+    - Filtering items
+    - Search bar
+    - Remove scrollbar from header
+
 
 
 # AngularEcomm
