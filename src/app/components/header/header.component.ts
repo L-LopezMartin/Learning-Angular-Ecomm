@@ -8,7 +8,7 @@ import { CurrentPageService } from '../../services/current-page.service';
   selector: 'app-header',
   imports: [PrimaryButtonComponent, RouterLink],
   template: `
-    <div class="px-10 bg-slate-100 py-3 shadow-md flex justify-between items-center">
+    <div class="px-10 bg-slate-100 shadow-md flex justify-between items-center h-[70px]">
       <button class="text-xl font-bold hover:cursor-pointer active:text-gray-500" routerLink="/" (click)="goMain()">{{title()}} </button>
       <span class="text-[32px] font-bold text-blue-800">{{pageService.currentPage()}}</span>
       <app-primary-button [label]='"Cart(" + this.cart.cart().length + ")"' (btnClicked)="goCart()" routerLink="/cart"/>

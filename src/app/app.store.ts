@@ -29,10 +29,10 @@ export const AppStore = signalStore(
 
         fail:() => {
             patchState(store, { loading: false, failed:true})
-        }
+        },
 
-        //Lo siguiente serviría para mostrar la progress bar si mi página cargara cuando cargue todo lo de la ruta.
-        //Como no es mi caso, lo voy a comentar todo porque está haciendo que no se muestre la progress bar
+        // Lo siguiente serviría para mostrar la progress bar si mi página cargara cuando cargue todo lo de la ruta.
+        // Como no es mi caso, lo voy a comentar todo porque está haciendo que no se muestre la progress bar
         // loaderOnNavigation: rxMethod<any>(pipe(
         //     tap((event)=>{
         //         if (event instanceof NavigationStart){

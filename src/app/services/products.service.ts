@@ -19,7 +19,7 @@ export class ProductsService {
 
   async fetchProducts(url: string){
     try{
-      //Fetch from API
+      // Fetch from API
       this.appStore.startLoading()
       console.log("Fetching");
       const res = await fetch(url)
@@ -33,8 +33,8 @@ export class ProductsService {
         prod.stock = Math.floor(Math.random() * 10)
       }
       console.log("Done fetching and setting");
-      this.appStore.stopLoading()}
-    catch{
+      this.appStore.stopLoading()
+    } catch{
       this.appStore.fail()
     }
   }
