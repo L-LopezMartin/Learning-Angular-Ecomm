@@ -3,8 +3,6 @@ TODO:
     CRITICAL
 
     TO IMPLEMENT
-    - Notification of adding product
-    - Error message when failed fetching
     - Filtering items
     - Search bar
     - Remove scrollbar from header

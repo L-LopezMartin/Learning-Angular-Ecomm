@@ -15,6 +15,6 @@ import { Component, input } from '@angular/core';
 })
 export class ErrorScreenComponent {
 
-  message = input<string>()
+  message = input<string>("Error message")
 
 }

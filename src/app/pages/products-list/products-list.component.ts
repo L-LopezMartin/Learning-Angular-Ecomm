@@ -18,7 +18,7 @@ import { ErrorScreenComponent } from "../../components/error-screen/error-screen
       </div>
     }
     @else{
-      <app-error-screen message="There was an error accesing the store's product. Reload the page and try again."/>
+      <app-error-screen message="There was an error accesing the store's products. Reload the page and try again."/>
     }
   </div>
   `,
