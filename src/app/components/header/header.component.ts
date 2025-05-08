@@ -11,7 +11,7 @@ import { CurrentPageService } from '../../services/current-page.service';
     <div class="px-10 bg-slate-100 shadow-md flex justify-between items-center h-[70px]">
       <button class="text-xl font-bold hover:cursor-pointer active:text-gray-500" routerLink="/" (click)="goMain()">{{title()}} </button>
       <span class="text-[32px] font-bold text-blue-800">{{pageService.currentPage()}}</span>
-      <app-primary-button [label]='"Cart(" + this.cart.cart().length + ")"' (btnClicked)="goCart()" routerLink="/cart"/>
+      <app-primary-button [label]="buttonLabel()" (btnClicked)="buttonRoute()" [routerLink]="route()"/>
     </div>
   `,
   styles: ` `
@@ -22,15 +22,32 @@ export class HeaderComponent {
 
   pageService = inject(CurrentPageService)
 
-  buttonLabel = signal<String>("Cart(" + this.cart.cart().length + ")")
+  buttonLabel = signal<string>("Cart(" + this.cart.cart().length + ")")
   title = signal<String>("My Store");
 
+  route = signal<string>("/cart")
+
+  buttonRoute(){
+    switch(this.pageService.currentPage()){
+
+      case "Main":
+        this.buttonLabel.set("Cart(" + this.cart.cart().length + ")")
+        this.pageService.changePage("Cart")
+        this.route.set("/")
+        break
+
+      case "Cart":
+        this.buttonLabel.set("Main")
+        this.pageService.changePage("Main")
+        this.route.set("/cart")
+        break
+    }
+  }
+
   goCart(){
-    this.pageService.changePage("Cart")
   }
 
   goMain(){
-    this.pageService.changePage("Main")
   }
 
 }
