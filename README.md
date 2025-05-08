@@ -1,10 +1,10 @@
 TODO:
 
     CRITICAL
+    - Search bar
 
     TO IMPLEMENT
     - Filtering items
-    - Search bar
     - Remove scrollbar from header
 
 
