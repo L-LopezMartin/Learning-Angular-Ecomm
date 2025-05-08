@@ -31,23 +31,23 @@ export class HeaderComponent {
     switch(this.pageService.currentPage()){
 
       case "Main":
-        this.buttonLabel.set("Cart(" + this.cart.cart().length + ")")
+        this.buttonLabel.set("Main")
         this.pageService.changePage("Cart")
         this.route.set("/")
         break
 
       case "Cart":
-        this.buttonLabel.set("Main")
+        this.buttonLabel.set("Cart(" + this.cart.cart().length + ")")
         this.pageService.changePage("Main")
         this.route.set("/cart")
         break
     }
   }
 
-  goCart(){
-  }
-
   goMain(){
+    this.buttonLabel.set("Cart(" + this.cart.cart().length + ")")
+    this.pageService.changePage("Main")
+    this.route.set("/cart")
   }
 
 }
