@@ -1,9 +1,10 @@
 TODO:
 
     CRITICAL
-    - Search bar
+    - Change header title and button so that it automatically changes when page changes(whatever the source is)
 
     TO IMPLEMENT
+    - Search bar
     - Filtering items
     - Remove scrollbar from header
 
