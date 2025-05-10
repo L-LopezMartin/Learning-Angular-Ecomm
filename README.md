@@ -2,6 +2,7 @@ TODO:
 
     CRITICAL
     - Change header title and button so that it automatically changes when page changes(whatever the source is)
+    - Cart number not changing when adding products
     - Comments
 
     TO IMPLEMENT

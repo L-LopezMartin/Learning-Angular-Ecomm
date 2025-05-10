@@ -7,7 +7,6 @@ import { CartService } from '../../../services/cart.service';
   selector: 'app-product-card',
   imports: [PrimaryButtonComponent],
   template: `
-  {{checkAdded()}}
     <div class="bg-white shadow-md border rounded-xl p-6 flex flex-col gap-6 relative">
       <div class="mx-auto">
         <img [src]="product().image" class="w-[200px] h-[100px] object-contain"/>
@@ -39,11 +38,13 @@ export class ProductCardComponent {
 
   buttonBgChange = "bg-blue-500"
 
-  checkAdded(){
+  ngOnInit(){
+    if(this.product().stock === 0){
+      this.outOfStock()
+    }
     for(var item of this.cart.cart()){
       if (item.product === this.product()){
-        this.buttonLabel = "Product added!"
-        this.buttonBgChange = "bg-green-700"
+        this.productAdded()
       }
     }
   }
@@ -51,12 +52,19 @@ export class ProductCardComponent {
   btnClickHandler(){
     if (this.product().stock! > 0){
       this.cart.addToCart(this.product());
-      this.buttonLabel = "Product added!"
-      this.buttonBgChange = "bg-green-700"
+      this.productAdded()
     }
     else {
-      this.buttonLabel = "Out of stock!"
-      this.buttonBgChange = "bg-red-700"
+      this.outOfStock()
     }
+  }
+
+  outOfStock(){
+    this.buttonLabel = "Out of stock!"
+    this.buttonBgChange = "bg-red-700"
+  }
+  productAdded(){
+    this.buttonLabel = "Product added!"
+    this.buttonBgChange = "bg-green-700"
   }
 }
