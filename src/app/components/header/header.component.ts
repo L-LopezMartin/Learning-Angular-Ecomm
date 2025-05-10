@@ -7,10 +7,10 @@ import { CurrentPageService } from '../../services/current-page.service';
   selector: 'app-header',
   imports: [PrimaryButtonComponent],
   template: `
-    <div class="px-10 bg-slate-100 shadow-md flex justify-between items-center h-[70px]">
+    <div class="px-10 bg-slate-100 shadow-md flex justify-between items-center h-[70px] w-[100vw]">
       <button class="text-xl font-bold hover:cursor-pointer active:text-gray-500" (click)="goMain()">{{title()}} </button>
       <span class="text-[32px] font-bold text-blue-800">{{pageTitle()}}</span>
-      <app-primary-button [label]="buttonLabel()" (btnClicked)="buttonRoute()"/>
+      <app-primary-button [label]="buttonLabel()" (btnClicked)="buttonRoute()" class="w-[90px]"/>
     </div>
   `,
   styles: ` `
