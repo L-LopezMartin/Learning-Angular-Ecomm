@@ -8,45 +8,46 @@ import { CurrentPageService } from '../../services/current-page.service';
   imports: [PrimaryButtonComponent],
   template: `
     <div class="px-10 bg-slate-100 shadow-md flex justify-between items-center h-[70px] w-[100vw]">
-      <button class="text-xl font-bold hover:cursor-pointer active:text-gray-500" (click)="goMain()">{{title()}} </button>
+      <button class="text-xl font-bold hover:cursor-pointer active:text-gray-500" (click)="handleMainButton()"> My Store </button>
       <span class="text-[32px] font-bold text-blue-800">{{pageTitle()}}</span>
-      <app-primary-button [label]="buttonLabel()" (btnClicked)="buttonRoute()" class="w-[90px]"/>
+      <app-primary-button [label]='"Cart(" + this.cartService.cart().length + ")"' (btnClicked)="handleCartButton()" class="w-[90px] {{hideCart()?'hidden':''}}"/>
+      <app-primary-button [label]='"Main"' (btnClicked)="handleMainButton()" class="w-[90px] {{hideCart()?'':'hidden'}}"/>
     </div>
-  `,
-  styles: ` `
+  `
 })
 export class HeaderComponent {
 
-  cart = inject(CartService)
+  cartService = inject(CartService)
 
   pageService = inject(CurrentPageService)
 
   pageTitle = signal<string>("Main")
 
-  buttonLabel = signal<string>("Cart(" + this.cart.cart().length + ")")
+  hideCart = signal<boolean>(true)
 
-  title = signal<String>("My Store");
-  
+  ngAfterContentChecked(){
+    this.buttonRoute()
+  }
+
+  handleCartButton(){
+    this.pageService.changePage("cart")
+  }
+  handleMainButton(){
+    this.pageService.changePage("")
+  }
 
   buttonRoute(){
     switch(this.pageService.currentPage()){
 
       case "":
-        this.pageService.changePage("cart")
-        this.pageTitle.set("Cart")
-        this.buttonLabel.set("Main")
-        break
-
+        this.pageTitle.set("Main")
+        this.hideCart.set(false)
+      break
+        
       case "cart":
-        this.goMain()
-        break
+        this.pageTitle.set("Cart")
+        this.hideCart.set(true)
+      break
     }
   }
-
-  goMain(){
-    this.pageService.changePage("")
-    this.pageTitle.set("Main")
-    this.buttonLabel.set("Cart(" + this.cart.cart().length + ")")
-  }
-
 }

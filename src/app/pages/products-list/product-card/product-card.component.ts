@@ -30,7 +30,7 @@ import { CartService } from '../../../services/cart.service';
 })
 export class ProductCardComponent {
 
-  cart = inject(CartService)
+  cartService = inject(CartService)
 
   product = input.required<Product>();
 
@@ -42,7 +42,7 @@ export class ProductCardComponent {
     if(this.product().stock === 0){
       this.outOfStock()
     }
-    for(var item of this.cart.cart()){
+    for(var item of this.cartService.cart()){
       if (item.product === this.product()){
         this.productAdded()
       }
@@ -51,7 +51,7 @@ export class ProductCardComponent {
 
   btnClickHandler(){
     if (this.product().stock! > 0){
-      this.cart.addToCart(this.product());
+      this.cartService.addToCart(this.product());
       this.productAdded()
     }
     else {
