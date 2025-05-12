@@ -1,7 +1,6 @@
 TODO:
 
     CRITICAL
-    - Comments
 
     TO IMPLEMENT
     - Search bar
