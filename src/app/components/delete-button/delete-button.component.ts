@@ -1,5 +1,10 @@
 import { Component, output } from '@angular/core';
 
+/*
+      Botón de eliminar
+
+    Es básicamente lo mismo que el primary button pero con otro color
+*/
 @Component({
   selector: 'app-delete-button',
   imports: [],
@@ -10,6 +15,7 @@ import { Component, output } from '@angular/core';
 })
 export class DeleteButtonComponent {
 
+  // Así se llamará el output del botón cuando sea clickeado
   btnClicked = output()
 
 }

@@ -1,5 +1,8 @@
 import { Component, input, output } from '@angular/core';
 
+/*
+      Botón 
+*/
 @Component({
   selector: 'app-primary-button',
   imports: [],
@@ -11,12 +14,13 @@ import { Component, input, output } from '@angular/core';
   styles: ``
 })
 export class PrimaryButtonComponent {
-  //Signal que le coloca el nombre al componente. Viene dada desde el componente que lo use
+  //Signal que le coloca label al botón. Viene dada desde el componente que lo use
   label = input('Button');
 
+  // Para colocarle distintos colores de background. Por defecto es azul
   bgChange = input<string>("bg-blue-500")
 
-  //Signal 
+  //Signal de salida del componente
   btnClicked = output();
 
   handleButtonClick(){

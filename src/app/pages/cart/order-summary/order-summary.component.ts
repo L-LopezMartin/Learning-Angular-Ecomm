@@ -2,6 +2,9 @@ import { Component, computed, inject } from '@angular/core';
 import { CartService } from '../../../services/cart.service';
 import { PrimaryButtonComponent } from "../../../components/primary-button/primary-button.component";
 
+/*
+      Total de compra del carrito
+*/
 @Component({
   selector: 'app-order-summary',
   imports: [PrimaryButtonComponent],
@@ -20,14 +23,17 @@ import { PrimaryButtonComponent } from "../../../components/primary-button/prima
   styles: ``
 })
 export class OrderSummaryComponent {
+  
   cartService = inject(CartService)
-  cart = this.cartService.cart
 
+  //El total es un valor calculado según los cambios de las señales dentro (cart del CartService)
   total = computed(() => {
     let total = 0
-    for(const item of this.cart()){
+    for(const item of this.cartService.cart()){
       total += item.product.price * item.amount
     }
+    
+    // Número con 2 decimales
     return total.toFixed(2)
   })
 }

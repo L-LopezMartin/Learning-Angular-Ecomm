@@ -2,6 +2,9 @@ import { Component, inject } from '@angular/core';
 import { PrimaryButtonComponent } from "../../../components/primary-button/primary-button.component";
 import { CurrentPageService } from '../../../services/current-page.service';
 
+/*
+      Muestra una pantalla si no hay productos en el carrito
+*/
 @Component({
   selector: 'app-empty-cart',
   imports: [PrimaryButtonComponent],
@@ -18,6 +21,7 @@ export class EmptyCartComponent {
 
   pageService = inject(CurrentPageService)
 
+  // El botón devuelve a la página principal (listado de productos)
   buttonHandler(){
     this.pageService.changePage("")
   }

@@ -6,13 +6,18 @@ import { AppStore } from '../../app.store';
 import { ErrorScreenComponent } from "../../components/error-screen/error-screen.component";
 import { SearchBarComponent } from "../../components/search-bar/search-bar.component";
 
+/*
+      Pantalla del catálogo de productos
+*/
 @Component({
   selector: 'app-products-list',
   imports: [ProductCardComponent, ErrorScreenComponent, SearchBarComponent],
   template: `
   <div class="flex flex-col items-center">
+
+    <!-- Detecta si hubo un fallo en cargar los productos -->
     @if (!appStore.failed()){
-      <app-search-bar class=" w-[30%] mt-10" (inputText)="searchText()"/>
+      <app-search-bar class=" w-[30%] mt-10"/>
       <div class="p-8 grid xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
         @for (product of products(); track product.id) {
           <app-product-card [product]="product"/>
@@ -28,15 +33,13 @@ import { SearchBarComponent } from "../../components/search-bar/search-bar.compo
 })
 export class ProductsListComponent {
 
-  searchText = signal<string>("")
-
-  productsService = inject(ProductsService)
+  productsService = inject(ProductsService) //De donde obtenemos los productos
 
   appStore = inject(AppStore)
 
-  products = signal<Product[]>([])
+  products = signal<Product[]>([]) // Array de productos
 
-  ngOnInit(){
+  constructor(){
     this.products = this.productsService.products
   }
   

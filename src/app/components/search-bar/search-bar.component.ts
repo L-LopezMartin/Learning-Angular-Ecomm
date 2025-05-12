@@ -1,6 +1,11 @@
 import { Component, output, signal } from '@angular/core';
 import { MatIcon } from '@angular/material/icon'
 
+/*
+      Una simple search bar
+
+    No tiene funcionalidad por lo pronto
+*/
 @Component({
   selector: 'app-search-bar',
   imports: [MatIcon],

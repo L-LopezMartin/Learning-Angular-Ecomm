@@ -14,6 +14,17 @@ const initialState: AppState = {
     failed: false
 }
 
+/*      Manejo del estado de la store
+
+    Actualmente solo sirve para saber cuándo está cargando (buscando productos en FakeStoreAPI) o hubo un problema en el fetch
+    Esto se usa para que se muestre una barra de carga en la pantalla principal
+
+    El código comentado de más abajo era para que cada página tuviera su barra de carga, pero
+        1- Realmente no es necesario porque el cart se carga al instante
+        2- No logré hacerlo andar
+    Creo que hacía que la barra se mostrara si la ruta en sí estaba cargada ("/" o "/cart"), lo que hacía que no se mostrara la barra que hice para el fetch (se sobreescribía)
+
+*/
 export const AppStore = signalStore(
     { providedIn: "root"},
     withState(initialState),

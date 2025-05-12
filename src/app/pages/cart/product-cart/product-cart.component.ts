@@ -1,9 +1,12 @@
 import { Component, inject, input } from '@angular/core';
-import { DeleteButtonComponent } from "../delete-button/delete-button.component";
-import { Cart } from '../../models/cart.model';
-import { CartService } from '../../services/cart.service';
-import { PrimaryButtonComponent } from "../primary-button/primary-button.component";
+import { DeleteButtonComponent } from "../../../components/delete-button/delete-button.component";
+import { Cart } from '../../../models/cart.model';
+import { CartService } from '../../../services/cart.service';
+import { PrimaryButtonComponent } from "../../../components/primary-button/primary-button.component";
 
+/*
+      Producto en el carrito de compra
+*/
 @Component({
   selector: 'app-product-cart',
   imports: [DeleteButtonComponent, PrimaryButtonComponent],
@@ -30,18 +33,21 @@ import { PrimaryButtonComponent } from "../primary-button/primary-button.compone
   styles: ``
 })
 export class ProductCartComponent {
-  product = input.required<Cart>()
+  product = input.required<Cart>() // Es recibido desde el componente principal del carrito en un for
 
   cart = inject(CartService)
 
+  // Botón de eliminar del carrito
   handleDeleteButton(){
     this.cart.removeFromCart(this.product())
   }
 
+  // Botón de reducir canitdad de un producto
   reduceItem(){
     this.cart.reduceItem(this.product())
   }
   
+  // Botón de agregar canitdad de un producto
   addItem(){
     this.cart.addItem(this.product())
   }

@@ -1,5 +1,8 @@
 import { Component, input } from '@angular/core';
 
+/*
+      Pantalla para error
+*/
 @Component({
   selector: 'app-error-screen',
   imports: [],
@@ -15,6 +18,6 @@ import { Component, input } from '@angular/core';
 })
 export class ErrorScreenComponent {
 
-  message = input<string>("Error message")
+  message = input<string>("Error message") //El mensaje de error custom que queremos pasarle
 
 }
