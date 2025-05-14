@@ -9,9 +9,9 @@ import { CurrentPageService } from '../../../services/current-page.service';
   selector: 'app-empty-cart',
   imports: [PrimaryButtonComponent],
   template: `
-    <div class="border-1 rounded-xl py-8 px-8 bg-slate-200 flex flex-col items-center w-[600px] gap-4">
-      <h1 class="text-4xl text-blue-800 font-bold"> The cart is empty</h1>
-      <p class="text-xl"> Go back to the store and add some items! </p>
+    <div class="border-1 rounded-xl sm:py-8 sm:px-8 p-4 bg-slate-200 flex flex-col items-center sm:w-[600px] w-[80vw] gap-4">
+      <h1 class="sm:text-4xl text-2xl text-blue-800 font-bold"> The cart is empty</h1>
+      <p class="sm:text-xl text-center"> Go back to the store and add some items! </p>
       <app-primary-button label="Store" class="w-[40%]" (btnClicked)="buttonHandler()"/>
     </div>
   `,

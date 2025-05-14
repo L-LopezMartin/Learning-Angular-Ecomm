@@ -1,8 +1,12 @@
+<a href="https://l-lopezmartin.github.io/Learning-Angular-Ecomm/"> Deployed page </a>
+
 TODO:
 
     CRITICAL
+    - Responsiveness
 
     TO IMPLEMENT
+    - Back to top button
     - Search bar
     - Filtering items
 

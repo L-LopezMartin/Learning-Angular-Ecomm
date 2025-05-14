@@ -12,15 +12,16 @@ import { CurrentPageService } from '../../services/current-page.service';
   selector: 'app-header',
   imports: [PrimaryButtonComponent],
   template: `
-    <div class="px-10 bg-slate-100 shadow-md flex justify-between items-center h-[70px] w-[100vw]">
-      <button class="text-xl font-bold hover:cursor-pointer active:text-gray-500" (click)="handleMainButton()"> My Store </button>
-      <span class="text-[32px] font-bold text-blue-800">{{pageTitle()}}</span>
-
-      <!-- De estos dos botones, siempre hay 1 solo activo dependiendo de la página en la que nos encontremos -->
-      <app-primary-button [label]='"Cart(" + this.cartService.cart().length + ")"' (btnClicked)="handleCartButton()" class="w-[90px] {{hideCart()?'hidden':''}}"/>
-      <app-primary-button [label]='"Main"' (btnClicked)="handleMainButton()" class="w-[90px] {{hideCart()?'':'hidden'}}"/>
+    <div class="flex flex-row justify-between items-center px-5 bg-slate-100 shadow-md h-[70px] w-[100vw] sm:px-10">
+        <button class="text-base sm:text-xl font-bold hover:cursor-pointer active:text-gray-500" (click)="handleMainButton()"> My Store </button>
+        <span class="text-[32px] font-bold text-blue-800 hidden sm:block">{{pageTitle()}}</span>
+        <span class="text-[28px] font-bold text-blue-800 sm:hidden">{{pageTitle()}}</span>
+        
+        <!-- De estos dos botones, siempre hay 1 solo activo dependiendo de la página en la que nos encontremos -->
+        <app-primary-button [label]='"Cart(" + this.cartService.cart().length + ")"' (btnClicked)="handleCartButton()" class="w-[80px] {{hideCart()?'hidden':''}} text-sm sm:text-base sm:w-[90px]"/>
+        <app-primary-button [label]='"Main"' (btnClicked)="handleMainButton()" class="w-[80px] {{hideCart()?'':'hidden'}} text-sm sm:text-base sm:w-[90px]"/>
     </div>
-  `
+  `,
 })
 export class HeaderComponent {
 

@@ -17,7 +17,7 @@ import { SearchBarComponent } from "../../components/search-bar/search-bar.compo
 
     <!-- Detecta si hubo un fallo en cargar los productos -->
     @if (!appStore.failed()){
-      <app-search-bar class=" w-[30%] mt-10"/>
+      <app-search-bar class="w-[70vw] md:w-[40%] mt-10"/>
       <div class="p-8 grid xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
         @for (product of products(); track product.id) {
           <app-product-card [product]="product"/>

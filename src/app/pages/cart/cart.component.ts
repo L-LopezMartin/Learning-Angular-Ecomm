@@ -11,7 +11,7 @@ import { EmptyCartComponent } from "./empty-cart/empty-cart.component";
   selector: 'app-cart',
   imports: [ProductCartComponent, OrderSummaryComponent, EmptyCartComponent],
   template: `
-    <div class="mx-[10%] my-[2rem] flex flex-col gap-5 items-center">
+    <div class="mx-[20px] md:mx-[10%] my-[2rem] flex flex-col gap-5 items-center">
       <!-- Si el carrito está vacío se muestra un mensaje -->
       @if(this.cart.cart().length == 0){
         <app-empty-cart/>

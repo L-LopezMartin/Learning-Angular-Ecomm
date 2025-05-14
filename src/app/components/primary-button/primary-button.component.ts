@@ -7,9 +7,9 @@ import { Component, input, output } from '@angular/core';
   selector: 'app-primary-button',
   imports: [],
   template: `
-    <button (click)="handleButtonClick()" class="{{bgChange()}} text-white w-full border px-4 py-2 rounded-xl shadow-md hover:opacity-90 cursor-pointer active:bg-blue-900">
-      {{label()}}
-    </button>
+  <div class="{{bgChange()}} px-4 py-2 rounded-xl shadow-md hover:opacity-90 cursor-pointer active:bg-blue-900">
+    <button (click)="handleButtonClick()" class="text-white text-center w-full"> {{label()}} </button>
+  </div>
   `,
   styles: ``
 })
