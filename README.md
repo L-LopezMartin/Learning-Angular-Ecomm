@@ -3,10 +3,8 @@
 TODO:
 
     CRITICAL
-    - Responsiveness
 
     TO IMPLEMENT
-    - Back to top button
     - Search bar
     - Filtering items
 

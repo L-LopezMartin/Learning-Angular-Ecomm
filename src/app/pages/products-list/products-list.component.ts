@@ -5,13 +5,14 @@ import { ProductsService } from '../../services/products.service';
 import { AppStore } from '../../app.store';
 import { ErrorScreenComponent } from "../../components/error-screen/error-screen.component";
 import { SearchBarComponent } from "../../components/search-bar/search-bar.component";
+import { TopButtonComponent } from "../../components/top-button/top-button.component";
 
 /*
       Pantalla del catálogo de productos
 */
 @Component({
   selector: 'app-products-list',
-  imports: [ProductCardComponent, ErrorScreenComponent, SearchBarComponent],
+  imports: [ProductCardComponent, ErrorScreenComponent, SearchBarComponent, TopButtonComponent],
   template: `
   <div class="flex flex-col items-center">
 
@@ -23,6 +24,7 @@ import { SearchBarComponent } from "../../components/search-bar/search-bar.compo
           <app-product-card [product]="product"/>
         }
       </div>
+      <app-top-button class="fixed right-4 bottom-4 md:right-8 md:bottom-8 h-[60px] w-[65px]" bgChange="bg-green-800"/>
     }
     @else{
       <app-error-screen message="There was an error accesing the store's products. Reload the page and try again."/>
