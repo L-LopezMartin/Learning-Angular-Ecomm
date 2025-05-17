@@ -6,7 +6,6 @@ TODO:
 
     TO IMPLEMENT
     - Search bar
-    - Filtering items
 
 
 
