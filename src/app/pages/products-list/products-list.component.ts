@@ -25,7 +25,7 @@ import { FilterSelectableComponent } from "../../components/filter-selectable/fi
           <app-filter-selectable label="{{cat}}" (selected)="selectCategories($event)"/>
         }
       </div>
-
+      
       <!-- Search bar -->
       <app-search-bar class="w-[70vw] md:w-[40%] mt-5" (search)="searchBarHandling($event)"/>
       <span class="text-red-700 mt-2">{{searchError}}</span>
@@ -68,13 +68,12 @@ export class ProductsListComponent {
 
   categories = () => {return this.defineCategories()} //Array de todas las categorías
 
-  cats = signal<string[]>([])
   selectedCategories = signal<string[]>([])
   
   constructor(){
     this.products = this.productsService.products //products de acá y products del service son el mismo. Cambiar uno cambia el otro
   }
-    
+  
   // Llena el array de las categorías
   defineCategories(){
     var cats: string[] =[]
@@ -93,7 +92,7 @@ export class ProductsListComponent {
     if (this.selectedCategories().includes(cat)){
       this.selectedCategories.set(this.selectedCategories().filter((category) => category !== cat))
     } 
-    //So no lo está, agregarlo a las categorías seleccionadas
+    //Si no lo está, agregarlo a las categorías seleccionadas
     else{
       this.selectedCategories().push(cat)
     }

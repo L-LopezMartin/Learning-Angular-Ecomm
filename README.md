@@ -1,13 +1,5 @@
 <a href="https://l-lopezmartin.github.io/Learning-Angular-Ecomm/"> Deployed page </a>
 
-TODO:
-
-    CRITICAL
-    - Ability to search and then apply categories and vice versa
-
-    TO IMPLEMENT
-
-
 
 # AngularEcomm
 
