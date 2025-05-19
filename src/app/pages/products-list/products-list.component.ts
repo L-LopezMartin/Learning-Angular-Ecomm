@@ -20,7 +20,7 @@ import { FilterSelectableComponent } from "../../components/filter-selectable/fi
     @if (!appStore.failed()){
 
       <!-- Categories -->
-      <div class="flex mt-5 gap-2">
+      <div class="flex mt-5 gap-2 md:w-[600px] flex-wrap w-[70%] items-center justify-center">
         @for (cat of categories();track $index){
           <app-filter-selectable label="{{cat}}" (selected)="selectCategories($event)"/>
         }
@@ -28,7 +28,7 @@ import { FilterSelectableComponent } from "../../components/filter-selectable/fi
       
       <!-- Search bar -->
       <app-search-bar class="w-[70vw] md:w-[40%] mt-5" (search)="searchBarHandling($event)"/>
-      <span class="text-red-700 mt-2">{{searchError}}</span>
+      <span class="text-red-700 mt-2 w-[80%] text-center">{{searchError}}</span>
       
       <!-- Product cards -->
       <div class="p-8 grid xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 w-full">
