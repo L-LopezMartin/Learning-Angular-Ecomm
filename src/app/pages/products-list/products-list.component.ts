@@ -18,15 +18,21 @@ import { FilterSelectableComponent } from "../../components/filter-selectable/fi
   <div class="flex flex-col items-center">
     <!-- Detecta si hubo un fallo en cargar los productos -->
     @if (!appStore.failed()){
+
+      <!-- Categories -->
       <div class="flex mt-5 gap-2">
         @for (cat of categories();track $index){
           <app-filter-selectable label="{{cat}}" (selected)="selectCategories($event)"/>
         }
       </div>
-      <app-search-bar class="w-[70vw] md:w-[40%] mt-5"/>
+
+      <!-- Search bar -->
+      <app-search-bar class="w-[70vw] md:w-[40%] mt-5" (search)="searchBarHandling($event)"/>
+      <span class="text-red-700 mt-2">{{searchError}}</span>
       
-      <div class="p-8 grid xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
-        @if (selectedCategories().length == 0){
+      <!-- Product cards -->
+      <div class="p-8 grid xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 w-full">
+        @if (showedProducts().length == 0){
           @for (product of products(); track product.id) {
             <app-product-card [product]="product"/>
           }
@@ -37,14 +43,16 @@ import { FilterSelectableComponent } from "../../components/filter-selectable/fi
           }
         }
       </div>
+
+      <!-- Top button -->
       <app-top-button class="fixed right-4 bottom-4 md:right-8 md:bottom-8 h-[60px] w-[65px]" bgChange="bg-green-800"/>
     }
+    <!-- Error screen -->
     @else{
       <app-error-screen message="There was an error accesing the store's products. Reload the page and try again."/>
     }
   </div>
-  `,
-  styles: ``
+  `
 })
 export class ProductsListComponent {
 
@@ -55,6 +63,8 @@ export class ProductsListComponent {
   products = signal<Product[]>([]) // Array de productos totales
 
   showedProducts = signal<Product[]>([])
+
+  searchError = ""
 
   categories = () => {return this.defineCategories()} //Array de todas las categorías
 
@@ -77,7 +87,7 @@ export class ProductsListComponent {
     return cats
   }
 
-  //Handle de los botones de categoría. Togglean las categorías seleccionadas
+  // Handle de los botones de categoría. Togglean las categorías seleccionadas
   selectCategories(cat: string){
     //Si está entre las categorías seleccionadas, deseleccionar
     if (this.selectedCategories().includes(cat)){
@@ -90,5 +100,20 @@ export class ProductsListComponent {
 
     //Filtrar los productos a mostrar para que sean sólo los que corresponden con la categoría
     this.showedProducts.set(this.products().filter(prod => this.selectedCategories().includes(prod.category)))
+  }
+
+  // Settea que se muestren los productos cuyo título 
+  searchBarHandling(searchQuery: string){
+
+    if(this.showedProducts().length == 0)
+      this.showedProducts.set(this.products().filter(prod => prod.title.toLowerCase().includes(searchQuery.toLowerCase())))
+    else
+      this.showedProducts.set(this.showedProducts().filter(prod => prod.title.toLowerCase().includes(searchQuery.toLowerCase())))
+
+    this.searchError = "" //Reset del search error message
+
+    // Si no hay productos como los buscados
+    if(this.showedProducts().length == 0)
+      this.searchError = `No items found with title: ${searchQuery}`
   }
 }

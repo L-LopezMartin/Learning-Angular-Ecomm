@@ -28,7 +28,6 @@ export class ProductsService {
     try{
       // Fetch from API
       this.appStore.startLoading()
-      console.log("Fetching");
       const res = await fetch(url)
       const data = await res.json()
   
@@ -40,7 +39,6 @@ export class ProductsService {
         prod.stock = Math.floor(Math.random() * 10)
       }
       
-      console.log("Done fetching and setting");
       this.appStore.stopLoading()
 
     } catch{  //Cualquier tipo de error en el proceso

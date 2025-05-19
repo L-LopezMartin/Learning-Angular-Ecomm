@@ -3,9 +3,9 @@
 TODO:
 
     CRITICAL
+    - Ability to search and then apply categories and vice versa
 
     TO IMPLEMENT
-    - Search bar
 
 
 
